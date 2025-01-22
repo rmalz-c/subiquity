@@ -1768,7 +1768,7 @@ class FilesystemModel:
         # sort first on the sort_key.  Objective here is that if we are falling
         # back to arbitrary disk selection, we're at least consistent in what
         # disk we arbitrarily select across runs
-        disks.sort(key=lambda d: tuple("" if x is None else x for x in d.sort_key))
+        disks.sort(key=lambda d: d.sort_key)
 
         # then sort on size, if requested.  Thanks to stable sort, if disks
         # (or raids) have the same size, the sort_key will tiebreak.
